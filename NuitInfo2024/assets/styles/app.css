@@ -1,0 +1,272 @@
+/* Style global */
+body {
+    margin: 0;
+    height: auto;
+    background: linear-gradient(to bottom, #0077be, #000b10);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    color: #ffffff;
+}
+
+/* Container central pour aligner le contenu */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.beating-heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    background-color: red;
+    transform: rotate(-45deg);
+    margin-top: 100px;
+    margin-left: 45%;
+    animation: heartbeat 1.2s infinite;
+}
+
+/* Dessine le côté gauche du cœur */
+.beating-heart:before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    top: -50px;
+    left: 0;
+}
+
+/* Dessine le côté droit du cœur */
+.beating-heart:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    top: -10px;
+    left: 45px;
+}
+
+/* Animation de battement */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+
+/* Animation des bulles */
+.bulle {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: monter 15s linear infinite, opacite 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes monter {
+    0% {
+        transform: translateY(0) scale(0.5);
+    }
+    100% {
+        transform: translateY(-700vh) scale(1.2);
+    }
+}
+
+@keyframes opacite {
+    0%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Animation pour les sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    padding: 100px 0;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Section d'introduction */
+.intro-section {
+    background: rgb(0, 119, 190);
+    text-align: center;
+    animation-delay: 0.5s;
+}
+
+/* Courants océaniques */
+.currents-section {
+    background: rgb(0, 90, 140);
+    animation-delay: 1s;
+}
+
+/* Régulation thermique */
+.thermal-regulation-section {
+    background: rgba(0, 60, 100);
+    animation-delay: 1.5s;
+}
+
+/* Dysfonctionnements */
+.dysfunction-section {
+    background: rgba(50, 50, 70);
+    animation-delay: 2s;
+}
+
+/* Appel à l'action */
+.call-to-action-section {
+    background: rgba(0, 100, 150);
+    text-align: center;
+    animation-delay: 2.5s;
+}
+
+.cta-button {
+    position: fixed; /* Permet au bouton de se déplacer librement */
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Assure qu'il reste au-dessus des autres éléments */
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, top 0.2s ease, left 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+.rope-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: rgba(0, 119, 190, 0.1);
+    border: 1px solid #0077be;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 9999;
+}
+
+svg#rope {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#handle {
+    fill: #FF5733;
+    stroke: #333;
+    stroke-width: 2;
+    cursor: pointer;
+}
+
+#loader {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background-color: #4CAF50;
+    transition: width 0.1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Images dynamiques */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Styles pour les titres */
+.title, .subtitle {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5em;
+}
+
+.subtitle {
+    font-size: 2em;
+}
+
+/* Paragraphe descriptif */
+.description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.theme-image{
+    width: 256px;
+    height: 256px;
+}

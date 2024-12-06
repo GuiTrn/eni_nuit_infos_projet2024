@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #0077be, #000b10); /* Dégradé pour l'eau */
+    position: relative;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+.bulle {
+    position: absolute;
+    bottom: -50px; /* Les bulles commencent sous la vue */
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: monter 15s linear infinite, opacite 15s ease-in-out infinite;
+    pointer-events: none; /* Empêche les bulles d'interférer avec le défilement */
+}
+
+@keyframes monter {
+    0% {
+        transform: translateY(0) scale(0.5);
+    }
+    100% {
+        transform: translateY(-700vh) scale(1.2); /* Monte en fonction de la hauteur de la page */
+    }
+}
+
+@keyframes opacite {
+    0%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

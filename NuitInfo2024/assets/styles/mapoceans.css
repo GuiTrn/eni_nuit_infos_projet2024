@@ -1,0 +1,84 @@
+.image-container {
+    border-radius: 10px;
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #0077be;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.icon:hover {
+    transform: scale(1.3);
+}
+
+/* Position des icônes */
+.atlantic-ocean {
+    top: 30%;
+    left: 40%;
+}
+
+.pacific-ocean {
+    top: 50%;
+    left: 10%;
+}
+
+.indian-ocean {
+    top: 60%;
+    left: 70%;
+}
+
+.austral-ocean {
+    top: 5%;
+    left: 50%;
+}
+
+.arctic-ocean {
+    top: 80%;
+    left: 55%;
+}
+
+/* Animation de l'étiquette */
+.tooltip {
+    position: absolute;
+    background: #0077be;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    display: none;
+    /* Masqué par défaut */
+    transform: translate(20px, 0px);
+    /* Décalage à côté de l'icône */
+    white-space: nowrap;
+}
+
+.icon:hover+.tooltip {
+    display: block;
+    /* Affiche l'étiquette au survol */
+    animation: 0.3s ease;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -130%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -120%);
+    }
+}

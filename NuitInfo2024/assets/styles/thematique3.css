@@ -1,0 +1,192 @@
+/* Style global */
+body {
+    margin: 0;
+    height: auto;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    color: #ffffff;
+}
+
+/* Container central pour aligner le contenu */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+/* Animation des bulles */
+.bulle {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: monter 15s linear infinite, opacite 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes monter {
+    0% {
+        transform: translateY(0) scale(0.5);
+    }
+    100% {
+        transform: translateY(-700vh) scale(1.2);
+    }
+}
+
+@keyframes opacite {
+    0%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Animation pour les sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    padding: 100px 0;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Section d'introduction */
+.intro-section {
+    background: rgb(0, 119, 190);
+    text-align: center;
+    animation-delay: 0.5s;
+}
+
+/* Courants océaniques */
+.currents-section {
+    background: rgb(0, 90, 140);
+    animation-delay: 1s;
+}
+
+/* Régulation thermique */
+.thermal-regulation-section {
+    background: rgba(0, 60, 100);
+    animation-delay: 1.5s;
+}
+
+/* Dysfonctionnements */
+.dysfunction-section {
+    background: rgba(50, 50, 70);
+    animation-delay: 2s;
+}
+
+/* Appel à l'action */
+.call-to-action-section {
+    background: rgba(0, 100, 150);
+    text-align: center;
+    animation-delay: 2.5s;
+}
+
+.call-to-action-section .cta-button {
+    background: #00aaff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Images dynamiques */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Styles pour les titres */
+.title, .subtitle {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5em;
+}
+
+.subtitle {
+    font-size: 2em;
+}
+
+/* Paragraphe descriptif */
+.description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Section de contenu alterné */
+.alternate-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.alternate-section:nth-child(even) {
+    flex-direction: row-reverse; /* Inverse l'ordre des colonnes pour les sections paires */
+}
+
+.alternate-section .text-content {
+    width: 50%;
+    padding: 20px;
+}
+
+.alternate-section .image-content {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.alternate-section img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

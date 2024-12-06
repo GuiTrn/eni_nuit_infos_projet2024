@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corde Dynamique avec Loader</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #rope {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #handle {
+            fill: #FF5733;
+            stroke: #333;
+            stroke-width: 2;
+            cursor: pointer;
+        }
+
+        #loader {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #progress {
+            height: 100%;
+            width: 0%;
+            background-color: #4CAF50;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+<div id="loader">
+    <div id="progress"></div>
+</div>
+<svg id="rope" width="100%" height="100%">
+    <path d="" stroke="black" fill="transparent" stroke-width="2"></path>
+    <circle id="handle" cx="0" cy="0" r="10"></circle>
+</svg>
+
+<script>
+    // Setup Matter.js engine and renderer
+    const engine = Matter.Engine.create();
+    const world = engine.world;
+    const render = Matter.Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            wireframes: false
+        }
+    });
+
+    const ropeLength = 5; // Reduced number of segments
+    const segmentLength = 20; // Reduced length of each segment
+
+    // Create rope
+    const group = Matter.Body.nextGroup(true);
+    const rope = Matter.Composites.stack(300, 100, ropeLength, 1, 0, 0, (x, y) => {
+        return Matter.Bodies.circle(x, y, 8, { collisionFilter: { group } });
+    });
+
+    Matter.Composites.chain(rope, 0.5, 0, -0.5, 0, {
+        stiffness: 0.8,
+        length: segmentLength,
+        damping: 0.1
+    });
+
+    // Attach rope to a fixed point
+    const fixedPoint = { x: window.innerWidth / 2, y: 50 };
+    Matter.World.add(world, [
+        rope,
+        Matter.Constraint.create({
+            pointA: fixedPoint,
+            bodyB: rope.bodies[0],
+            pointB: { x: 0, y: 0 },
+            stiffness: 1,
+            length: 0
+        })
+    ]);
+
+    // Create handle and attach to the end of the rope
+    const handle = rope.bodies[rope.bodies.length - 1];
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+        constraint: {
+            render: { visible: false },
+            stiffness: 0.9
+        }
+    });
+
+    Matter.World.add(world, mouseConstraint);
+
+    // Run engine and renderer
+    Matter.Engine.run(engine);
+    Matter.Render.run(render);
+
+    // Rope rendering
+    const ropePath = document.querySelector("#rope path");
+    const handleElement = document.querySelector("#handle");
+    const progressBar = document.querySelector("#progress");
+
+    let hasRedirected = false;
+
+    Matter.Events.on(engine, "afterUpdate", () => {
+        let path = `M ${fixedPoint.x} ${fixedPoint.y}`;
+        for (let body of rope.bodies) {
+            path += ` L ${body.position.x} ${body.position.y}`;
+        }
+        ropePath.setAttribute("d", path);
+        handleElement.setAttribute("cx", handle.position.x);
+        handleElement.setAttribute("cy", handle.position.y);
+
+        // Update loader progress
+        const progress = Math.min(
+            100,
+            ((handle.position.y - 100) / (window.innerHeight - 100)) * 160
+        );
+        progressBar.style.width = `${progress}%`;
+
+        // Redirect when progress reaches 100%
+        if (progress === 100 && !hasRedirected) {
+            hasRedirected = true;
+            window.location.href = "https://hyrome.paysdelaloire.e-lyco.fr/developpement-durable/protection-des-oceans/"; // Remplacez "/target-page" par l'URL de la page cible
+        }
+    });
+
+</script>
+</body>
+</html>

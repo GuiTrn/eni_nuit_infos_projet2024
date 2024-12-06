@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Et si l'océan était un corps humain ?
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/thematique2.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/mapoceans.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/foodchain.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% include 'index/navigation.html.twig' %}
+	{% block content %}
+		<!-- Bloc 1 : Introduction -->
+		<section class="intro-section">
+			<div class="container">
+				<h1 class="title">LES POUMONS BLEUS DE LA TERRE</h1>
+				<p class="description">Les océans jouent un rôle vital dans la régulation du climat, le maintien de la biodiversité et le soutien aux communautés humaines.</p>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="image-container">
+					<div class="image-container">
+						<img src=" {{ asset('World_map_with_nations.svg') }} " alt="Map">
+						<div class="icon atlantic-ocean" id="atlantic-ocean"></div>
+						<div class="tooltip atlantic-ocean  " id="tooltip-atlantic">Océan Atlantique</div>
+						<div class="icon pacific-ocean" id="pacific-ocean"></div>
+						<div class="tooltip pacific-ocean  " id="tooltip-atlantic">Océan Pacifique</div>
+						<div class="icon indian-ocean" id="indian-ocean"></div>
+						<div class="tooltip indian-ocean  " id="tooltip-atlantic">Océan Indien</div>
+						<div class="icon austral-ocean" id="austral-ocean"></div>
+						<div class="tooltip austral-ocean  " id="tooltip-atlantic">Océan Austral</div>
+						<div class="icon arctic-ocean" id="arctic-ocean"></div>
+						<div class="tooltip arctic-ocean  " id="tooltip-atlantic">Océan Arctique</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="grid-section" id="pacific-ocean-container">
+					<div>
+						<h2>OCÉAN PACIFIQUE</h2>
+					</div>
+					<div>
+						<p>
+							<strong>Superficie :</strong>
+							168 millions de km²</p>
+						<p>
+							<strong>Profondeur moyenne :</strong>
+							4 280 m</p>
+						<ul>
+							<li>Le plus grand océan du monde</li>
+							<li>Point le plus profond : Fosse des Mariannes (11 022 m)</li>
+							<li>Riche en biodiversité marine et îles tropicales</li>
+						</ul>
+					</div>
+				</div>
+				<div class="grid-section" id="atlantic-ocean-container">
+					<div>
+						<h2>OCÉAN ATLANTIQUE</h2>
+					</div>
+					<div>
+						<p>
+							<strong>Superficie :</strong>
+							85 millions de km²</p>
+						<p>
+							<strong>Profondeur moyenne :</strong>
+							3 646 m</p>
+						<ul>
+							<li>Relie les Amériques à l'Europe et à l'Afrique</li>
+							<li>Point le plus profond : Fosse de Porto Rico (8 376 m)</li>
+							<li>Courants marins importants comme le Gulf Stream</li>
+						</ul>
+					</div>
+				</div>
+				<div class="grid-section" id="indian-ocean-container">
+					<div>
+						<h2>OCÉAN INDIEN</h2>
+					</div>
+					<div>
+						<p>
+							<strong>Superficie :</strong>
+							70 millions de km²</p>
+						<p>
+							<strong>Profondeur moyenne :</strong>
+							3 741 m</p>
+						<ul>
+							<li>Connecte l'Asie, l'Afrique, et l'Australie</li>
+							<li>Point le plus profond : Fosse de Java (7 725 m)</li>
+							<li>Joue un rôle crucial dans le commerce mondial</li>
+						</ul>
+					</div>
+				</div>
+				<div class="grid-section" id="austral-ocean-container">
+					<div>
+						<h2>OCÉAN AUSTRAL</h2>
+					</div>
+					<div>
+						<p>
+							<strong>Superficie :</strong>
+							20 millions de km²</p>
+						<p>
+							<strong>Profondeur moyenne :</strong>
+							4 500 m</p>
+						<ul>
+							<li>Entoure l'Antarctique</li>
+							<li>Point le plus profond : Fosse de South Sandwich (7 235 m)</li>
+							<li>Clé dans la régulation de la température globale</li>
+						</ul>
+					</div>
+				</div>
+				<div class="grid-section" id="arctic-ocean-container">
+					<div>
+						<h2>OCÉAN ARCTIQUE</h2>
+					</div>
+					<div>
+						<p>
+							<strong>Superficie :</strong>
+							15 millions de km²</p>
+						<p>
+							<strong>Profondeur moyenne :</strong>
+							1 038 m</p>
+						<ul>
+							<li>Le plus petit océan, situé au pôle Nord</li>
+							<li>Point le plus profond : Bassin de Litke (5 450 m)</li>
+							<li>Habitat de l'ours polaire et de nombreuses espèces uniques</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<h2>L'Océan, ce vaste réservoir de vie, abrite des millions d'espèces, dont beaucoup restent à découvrir, et agit comme un immense puits de carbone, absorbant environ 30 % des émissions de dioxyde de carbone produites par l'activité humaine.</h2>
+				<div class="container-foodchain">
+					<div id="foodchain">Le rôle crucial du plancton dans la chaîne alimentaire</div>
+					<div id="infos-foodchain">Le phytoplancton est consommé par le zooplancton, qui sert lui-même de nourriture à de plus gros organismes marins, jusqu'aux prédateurs de pointe comme les requins et les baleines.</div>
+					<img class="organism" id="plankton" src="{{ asset('img/plancton.png') }}" alt="Plancton">
+					<img class="organism" id="medium-fish" src="{{ asset('img/poisson-bleu.png') }}" alt="Poisson Moyen">
+					<img class="organism" id="big-fish" src="{{ asset('img/thon.png') }}" alt="Grand Poisson">
+					<img class="organism" id="predator" src="{{ asset('img/requin.png') }}" alt="Prédateur">
+				</div>
+				<h3>Cette capacité à enrichir l'air en oxygène est similaire à la fonction des poumons humains, qui permettent d'échanger de l'oxygène avec l'environnement. Le dioxygène et le dioxyde de carbonne sont des éléments cruciaux pour nous, être terrestres, et les océans.</h3>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<h2>Cependant, les océans sont aujourd'hui confrontés à des menaces, particulièrement la pollution plastique. Chaque année, plus de 8 millions de tonnes de plastique se déversent dans les mers, formant des gyres océaniques comme le tristement célèbre "continent de plastique" dans le Pacifique. Ces déchets mettent en péril la faune marine et affectent la santé humaine via la chaîne alimentaire.</h2>
+			</div>
+		</section>
+	{% endblock %}
+	<footer>
+		<p>&copy; Nuit de l'Info 2024 - Créé avec passion pour sensibiliser sur l'importance des océans.</p>
+	</footer>
+	<script src="{{ asset('script/theme2.js') }}"></script>
+	<script src="{{ asset('script/bull.js') }}"></script>
+{% endblock %}

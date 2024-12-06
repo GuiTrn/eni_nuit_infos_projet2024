@@ -1,0 +1,58 @@
+/* Style global */
+body {
+    margin: 0;
+    height: auto;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    color: #ffffff;
+}
+
+.title {
+    font-size: 2.5em;
+}
+
+/* Paragraphe descriptif */
+.description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+section {
+    padding: 50px 0;
+}
+
+/* Section d'introduction */
+.intro-section {
+    background: rgb(0, 119, 190);
+    text-align: center;
+    animation-delay: 0.5s;
+}
+
+.grid-section {
+    display: grid;
+    grid-template-columns: 50% auto;
+    background-color: #ffffff;
+    margin: 0px 0px 50px 0px;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(0, 119, 190);
+}
+
+
+/* Container central pour aligner le contenu */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Images dynamiques */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    animation: float 6s ease-in-out infinite;
+}

@@ -1,0 +1,111 @@
+.container-foodchain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    background: linear-gradient(to bottom, #87ceeb, #4682b4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.organism {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    visibility: hidden;
+    animation-iteration-count: infinite;
+    /* Répéter indéfiniment */
+    animation-fill-mode: forwards;
+    /* Maintenir l'état de l'animation */
+}
+
+#foodchain {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 200px;
+    background-color: white;
+    color: #0077be;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#infos-foodchain {
+    font-size: 12px;
+    position: absolute;
+    display: none;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    background-color: rgb(225, 225, 225);
+    color: #0077be;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#foodchain:hover+#infos-foodchain {
+    display: block;
+    /* Affiche l'étiquette au survol */
+    animation: 0.3s ease;
+}
+
+
+#plankton {
+    top: 80%;
+    left: 10%;
+    width: 60px;
+}
+
+#medium-fish {
+    top: 60%;
+    left: 30%;
+    width: 100px;
+}
+
+#big-fish {
+    top: 30%;
+    left: 60%;
+    width: 120px;
+}
+
+#predator {
+    top: 20%;
+    left: 80%;
+    width: 140px;
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes move-eat {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

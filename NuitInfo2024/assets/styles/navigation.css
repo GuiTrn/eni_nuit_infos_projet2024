@@ -1,0 +1,82 @@
+/* Style général pour la barre de navigation */
+#mainNav {
+    background: #1c1c1e; /* Couleur de fond sombre élégante */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre discrète */
+    transition: background 0.3s ease-in-out; /* Transition fluide sur la couleur */
+    z-index: 9999; /* Toujours au-dessus des autres éléments */
+}
+
+#mainNav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#mainNav .navbar-brand img {
+    max-height: 80px; /* Taille appropriée pour le logo */
+    transition: transform 0.3s ease-in-out;
+}
+
+#mainNav .navbar-brand img:hover {
+    transform: scale(1.1); /* Agrandissement subtil au survol */
+}
+
+#mainNav .navbar-toggler {
+    background: #0077be; /* Bouton avec une couleur vive et attrayante */
+    border: none;
+    padding: 10px 15px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+#mainNav .navbar-toggler:hover {
+    background: #0077be;
+    transform: rotate(90deg); /* Rotation élégante au survol */
+}
+
+#mainNav .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre les liens */
+}
+
+#mainNav .nav-item {
+    list-style: none;
+}
+
+#mainNav .nav-link {
+    color: #ffffff; /* Couleur du texte */
+    text-transform: uppercase; /* Texte en majuscules */
+    font-weight: 600; /* Texte légèrement gras */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+    padding: 10px 15px; /* Marges intérieures */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+#mainNav .nav-link:hover {
+    background: #0077be; /* Couleur de fond vive au survol */
+    color: #ffffff; /* Texte toujours blanc */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Légère lueur */
+}
+
+#mainNav .nav-link.active {
+    background: #0077be; /* Couleur différente pour le lien actif */
+    color: #ffffff; /* Texte blanc */
+    font-weight: 700; /* Texte plus gras pour différenciation */
+}
+
+#mainNav.scrolled {
+    background: #0d0d0e; /* Fond plus sombre après le défilement */
+}
+
+/* Responsivité */
+@media (max-width: 991px) {
+    #mainNav .navbar-nav {
+        flex-direction: column; /* Empile les liens en colonne sur mobile */
+        gap: 10px; /* Espacement entre les liens */
+    }
+
+    #mainNav .nav-link {
+        text-align: center; /* Centre le texte sur mobile */
+    }
+}

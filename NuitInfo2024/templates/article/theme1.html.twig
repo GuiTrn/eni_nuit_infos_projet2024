@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L’Océan, le Cœur Battant de la Planète</title>
+    <script src="https://cdn.jsdelivr.net/npm/matter-js"></script>
+    <link rel="stylesheet" href="{{ asset('styles/thematique1.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/bull.css') }}">
+</head>
+<body>
+{% include 'index/navigation.html.twig' %}
+
+<!-- Bloc 1 : Introduction -->
+<section class="intro-section">
+    <div class="container">
+        <h1 class="title">L’Océan, le Cœur Battant de la Planète</h1>
+        <p class="description">
+            L’océan agit comme un gigantesque cœur pour notre planète, pompant chaleur et nutriments à travers ses courants marins, tout comme le cœur humain distribue le sang dans notre corps.
+            Les océans et le corps humain partagent aussi une autre caractéristique essentielle : ils sont composés majoritairement d'eau, environ 70 % dans les deux cas.
+        </p>
+        <div class="beating-heart"></div>
+    </div>
+</section>
+
+<!-- Bloc 2 : Les courants océaniques -->
+<section class="currents-section">
+    <div class="container">
+        <h2 class="subtitle">Les courants océaniques - Les veines et artères de la Terre</h2>
+        <p class="description">
+            Les courants marins, tels que le Gulf Stream, déplacent d’énormes quantités d’eau chaude et froide à travers le globe, distribuant chaleur et nutriments aux écosystèmes marins.
+            Comme les veines transportent le sang dans le corps humain, les courants permettent à l’océan de "respirer" et de maintenir la vie marine. Leur perturbation peut être comparée à une embolie dans le système sanguin humain.
+        </p>
+        <div class="currents-visual">
+            <img src="https://fr.oceancampus.eu/files/ressources/_image_upload/CxV.png" alt="Les courants océaniques">
+        </div>
+    </div>
+</section>
+
+<!-- Bloc 3 : Régulation thermique -->
+<section class="thermal-regulation-section">
+    <div class="container">
+        <h2 class="subtitle">Régulation thermique - Maintenir la température globale</h2>
+        <p class="description">
+            Les océans redistribuent la chaleur entre l'équateur et les pôles, régulant les climats régionaux. Cela ressemble au rôle du système circulatoire qui stabilise la température corporelle pour éviter la surchauffe ou l’hypothermie.
+            Sans cette régulation, les écosystèmes seraient perturbés, tout comme le corps humain en cas de dysfonctionnement thermique.
+        </p>
+        <img src="https://www.tilt.fr/sites/default/files/styles/img_article_image_block_mobile/public/2022-05/pompe-%C3%A0-carbone-physique-mobile.png.jpg?itok=Vz4HY0jb" alt="Régulation thermique par les océans">
+    </div>
+</section>
+
+<!-- Bloc 4 : Dysfonctionnements -->
+<section class="dysfunction-section">
+    <div class="container">
+        <h2 class="subtitle">Quand le "cœur" s’emballe</h2>
+        <p class="description">
+            Le ralentissement ou l’arrêt des courants marins, comme celui de la circulation thermohaline, pourrait avoir des conséquences dramatiques : inondations côtières, tempêtes, ou désertification.
+            Cela reflète les maladies cardiovasculaires humaines, où les blocages ou perturbations du flux sanguin peuvent entraîner des crises cardiaques ou des accidents vasculaires cérébraux.
+        </p>
+        <div class="dysfunction-visual">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Corrientes-oceanicas-en.svg/2880px-Corrientes-oceanicas-en.svg.png" alt="Dysfonctionnement des courants marins">
+        </div>
+    </div>
+</section>
+
+<!-- Bloc 5 : Appel à l’action -->
+<section class="call-to-action-section">
+    <div class="container">
+        <h2 class="cta-title">Protégeons notre "cœur planétaire"</h2>
+        <p class="cta-description">
+            En comprenant le rôle vital des océans dans notre système planétaire, il devient clair que nous devons agir pour les protéger : limiter les émissions de CO₂, réduire les plastiques et promouvoir des solutions innovantes.
+            Chaque action compte pour préserver la santé des océans et, par extension, celle de l'humanité.
+        </p>
+            <iframe
+                    class="rope-container"
+                    src="/rope">
+            </iframe>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 - Nuit de l’Info | Projet : Et si l’océan était un corps humain ?</p>
+    </div>
+</footer>
+
+<script src="{{ asset('script/bull.js') }}"></script>
+</body>
+</html>
